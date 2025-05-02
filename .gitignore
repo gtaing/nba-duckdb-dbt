@@ -15,3 +15,6 @@ wheels/
 
 # DuckDB local database files
 *.duckdb
+
+# Target directories
+src/transform/nba_analytics/target/
