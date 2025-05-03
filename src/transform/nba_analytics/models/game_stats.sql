@@ -2,14 +2,14 @@ with seasons as (
   select 
     season_id,
     concat_ws('-', year(min(game_date)), year(max(game_date))) as season
-  from {{ ref('stg_game_stats') }}
+  from {{ dbt_unit_testing.ref('stg_game_stats') }}
   GROUP BY season_id
 ),
 game_stats as (
   select 
     stg.*,
     s.season
-  from {{ ref('stg_game_stats') }} stg
+  from {{ dbt_unit_testing.ref('stg_game_stats') }} stg
   left join seasons as s
   on s.season_id = stg.season_id
 )

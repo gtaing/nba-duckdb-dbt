@@ -11,7 +11,7 @@ with home_games as (
         team_name_away as opponent_name,
         {{ games_rename_metrics('_home', '') }},
         {{ games_rename_metrics('_away', 'opponent_') }}
-    from {{ source("raw", "game") }}
+    from {{ dbt_unit_testing.source("raw", "game") }}
 ),
 away_games as (
     select
@@ -26,7 +26,7 @@ away_games as (
         team_name_home as opponent_name,
         {{ games_rename_metrics('_away', '') }},
         {{ games_rename_metrics('_home', 'opponent_') }}
-    from {{ source("raw", "game") }}
+    from {{ dbt_unit_testing.source("raw", "game") }}
 )
 SELECT * FROM home_games 
 UNION 

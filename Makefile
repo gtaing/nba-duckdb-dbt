@@ -1,15 +1,23 @@
+# Variables for common paths
+PROJECT_DIR = src/transform/nba_analytics
+PROFILES_DIR = src/transform/nba_analytics
 
+# Commands
+DBT_CMD = uv run dbt
+DBT_OPTIONS = --project-dir $(PROJECT_DIR) --profiles-dir $(PROFILES_DIR)
 
+# Targets
 ingest:
 	@echo "🚀 Ingesting files to duckdb"
 	@uv run src/ingest/load.py
 
 debug-dbt-config:
-	@uv run dbt debug --project-dir src/transform/nba_analytics --profiles-dir src/transform
+	@echo "🚀 Debug dbt config"
+	@$(DBT_CMD) debug $(DBT_OPTIONS)
 
 transform: ingest
 	@echo "🚀 Transforming with dbt"
-	@uv run dbt run --project-dir src/transform/nba_analytics --profiles-dir src/transform
+	@$(DBT_CMD) run $(DBT_OPTIONS)
 
 test-ingest:
 	@echo "🚀 Testing code: Running pytest"
@@ -17,12 +25,24 @@ test-ingest:
 
 dbt-docs-serve:
 	@echo "🚀 Generating dbt docs"
-	@uv run dbt docs generate --project-dir src/transform/nba_analytics --profiles-dir src/transform
-	@uv run dbt docs serve --project-dir src/transform/nba_analytics --profiles-dir src/transform
+	@$(DBT_CMD) docs generate $(DBT_OPTIONS)
+	@$(DBT_CMD) docs serve $(DBT_OPTIONS)
 
 dbt-compile:
 	@echo "🚀 Compiling dbt models"
-	@uv run dbt compile --project-dir src/transform/nba_analytics --profiles-dir src/transform
+	@$(DBT_CMD) compile $(DBT_OPTIONS)
+
+dbt-deps:
+	@echo "🚀 Installing dbt dependencies"
+	@$(DBT_CMD) deps $(DBT_OPTIONS)
+
+dbt-clean:
+	@echo "🚀 Cleaning dbt project"
+	@$(DBT_CMD) clean $(DBT_OPTIONS)
+
+dbt-test:
+	@echo "🚀 Testing dbt models"
+	@$(DBT_CMD) test $(DBT_OPTIONS)
 
 duckdb-ui:
 	@echo "🚀 Starting duckdb UI"
@@ -30,4 +50,4 @@ duckdb-ui:
 
 clean:
 	[ -f nba.duckdb ] && rm nba.duckdb
-	[ -d src/transform/nba_analytics/target ] && rm -rf src/transform/nba_analytics/target
+	[ -d $(PROJECT_DIR)/target ] && rm -rf $(PROJECT_DIR)/target
