@@ -90,6 +90,6 @@
     {% call dbt_unit_testing.expect({'input_format': 'csv'}) %}
     season_id,team,team_name,season,wins,losses,total_games,pts,fgm,fga,fg_pct,fg3m,fg3a,fg3_pct,ftm,fta,ft_pct,oreb,dreb,reb,ast
     22022,'LAL','Los Angeles Lakers','2022-2023',43,39,82,117.17,42.88,89.0,0.48,10.79,31.2,0.35,20.62,26.61,0.77,9.98,35.73,45.71,25.27
-   {% endcall %}
+    {% endcall %}
 
 {% endcall %}

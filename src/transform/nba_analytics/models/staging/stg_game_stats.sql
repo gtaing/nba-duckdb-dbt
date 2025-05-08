@@ -29,17 +29,17 @@ away_games as (
     from {{ dbt_unit_testing.source("raw", "game") }}
 ),
 full_games as (
-    SELECT * FROM home_games 
-    UNION 
-    SELECT * FROM away_games
-    WHERE YEAR(CAST(game_date AS DATE)) >= 2012
+    select * from home_games 
+    union 
+    select * from away_games
+    where year(cast(game_date as date)) >= 2012
 ),
 season_pattern as (
   select 
     season_id,
     concat_ws('-', year(min(game_date)), right(cast(year(max(game_date)) as string), 2)) as season
   from full_games
-  GROUP BY season_id
+  group by season_id
 )
 select 
     s.season,
