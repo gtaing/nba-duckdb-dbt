@@ -9,8 +9,8 @@ with home_games as (
         team_name_home as team_name,
         team_abbreviation_away as opponent,
         team_name_away as opponent_name,
-        {{ games_rename_metrics('_home', '') }},
-        {{ games_rename_metrics('_away', 'opponent_') }}
+        {{ game_rename_metrics('_home', 'team_') }},
+        {{ game_rename_metrics('_away', 'opponent_') }}
     from {{ dbt_unit_testing.source("raw", "game") }}
 ),
 away_games as (
@@ -24,11 +24,26 @@ away_games as (
         team_name_away as team_name,
         team_abbreviation_home as opponent,
         team_name_home as opponent_name,
-        {{ games_rename_metrics('_away', '') }},
-        {{ games_rename_metrics('_home', 'opponent_') }}
+        {{ game_rename_metrics('_away', 'team_') }},
+        {{ game_rename_metrics('_home', 'opponent_') }},
     from {{ dbt_unit_testing.source("raw", "game") }}
+),
+full_games as (
+    SELECT * FROM home_games 
+    UNION 
+    SELECT * FROM away_games
+    WHERE YEAR(CAST(game_date AS DATE)) >= 2012
+),
+season_pattern as (
+  select 
+    season_id,
+    concat_ws('-', year(min(game_date)), right(cast(year(max(game_date)) as string), 2)) as season
+  from full_games
+  GROUP BY season_id
 )
-SELECT * FROM home_games 
-UNION 
-SELECT * FROM away_games
-WHERE YEAR(CAST(game_date AS DATE)) >= 2012
+select 
+    s.season,
+    f.*
+from full_games as f
+left join season_pattern as s
+on s.season_id = f.season_id
