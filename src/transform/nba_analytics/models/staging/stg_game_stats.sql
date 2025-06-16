@@ -11,7 +11,7 @@ with home_games as (
         team_name_away as opponent_name,
         {{ game_rename_metrics('_home', 'team_') }},
         {{ game_rename_metrics('_away', 'opponent_') }}
-    from {{ dbt_unit_testing.source("raw", "game") }}
+    from {{ dbt_unit_testing.source("raw", "games") }}
 ),
 away_games as (
     select
@@ -26,7 +26,7 @@ away_games as (
         team_name_home as opponent_name,
         {{ game_rename_metrics('_away', 'team_') }},
         {{ game_rename_metrics('_home', 'opponent_') }},
-    from {{ dbt_unit_testing.source("raw", "game") }}
+    from {{ dbt_unit_testing.source("raw", "games") }}
 ),
 full_games as (
     select * from home_games 

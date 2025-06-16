@@ -1,0 +1,369 @@
+version: 2
+
+models:
+  - name: game_stats_team
+    description: ""
+    columns:
+      - name: season_id
+        data_type: bigint
+        description: ""
+
+      - name: team
+        data_type: varchar
+        description: ""
+
+      - name: team_name
+        data_type: varchar
+        description: ""
+
+      - name: season
+        data_type: varchar
+        description: ""
+
+      - name: wins
+        data_type: hugeint
+        description: ""
+
+      - name: losses
+        data_type: hugeint
+        description: ""
+
+      - name: total_games
+        data_type: bigint
+        description: ""
+
+      - name: team_fgm
+        data_type: double
+        description: ""
+
+      - name: team_ast
+        data_type: double
+        description: ""
+
+      - name: team_fg3m
+        data_type: double
+        description: ""
+
+      - name: team_ft_pct
+        data_type: double
+        description: ""
+
+      - name: team_oreb
+        data_type: double
+        description: ""
+
+      - name: team_reb
+        data_type: double
+        description: ""
+
+      - name: team_fg_pct
+        data_type: double
+        description: ""
+
+      - name: team_fg3_pct
+        data_type: double
+        description: ""
+
+      - name: team_dreb
+        data_type: double
+        description: ""
+
+      - name: team_fg3a
+        data_type: double
+        description: ""
+
+      - name: team_fga
+        data_type: double
+        description: ""
+
+      - name: team_fta
+        data_type: double
+        description: ""
+
+      - name: team_ftm
+        data_type: double
+        description: ""
+
+      - name: team_pts
+        data_type: double
+        description: ""
+
+      - name: opponent_fgm
+        data_type: double
+        description: ""
+
+      - name: opponent_ast
+        data_type: double
+        description: ""
+
+      - name: opponent_fg3m
+        data_type: double
+        description: ""
+
+      - name: opponent_fg_pct
+        data_type: double
+        description: ""
+
+      - name: opponent_fg3_pct
+        data_type: double
+        description: ""
+
+      - name: opponent_dreb
+        data_type: double
+        description: ""
+
+      - name: opponent_pts
+        data_type: double
+        description: ""
+
+      - name: opponent_fg3a
+        data_type: double
+        description: ""
+
+      - name: opponent_ft_pct
+        data_type: double
+        description: ""
+
+      - name: opponent_oreb
+        data_type: double
+        description: ""
+
+      - name: opponent_fga
+        data_type: double
+        description: ""
+
+      - name: opponent_fta
+        data_type: double
+        description: ""
+
+      - name: opponent_ftm
+        data_type: double
+        description: ""
+
+      - name: opponent_reb
+        data_type: double
+        description: ""
+
+      - name: net_fgm
+        data_type: double
+        description: ""
+
+      - name: net_ast
+        data_type: double
+        description: ""
+
+      - name: net_reb
+        data_type: double
+        description: ""
+
+      - name: net_fg3a
+        data_type: double
+        description: ""
+
+      - name: net_ftm
+        data_type: double
+        description: ""
+
+      - name: net_fg_pct
+        data_type: double
+        description: ""
+
+      - name: net_fg3_pct
+        data_type: double
+        description: ""
+
+      - name: net_dreb
+        data_type: double
+        description: ""
+
+      - name: net_fg3m
+        data_type: double
+        description: ""
+
+      - name: net_fga
+        data_type: double
+        description: ""
+
+      - name: net_fta
+        data_type: double
+        description: ""
+
+      - name: net_ft_pct
+        data_type: double
+        description: ""
+
+      - name: net_oreb
+        data_type: double
+        description: ""
+
+      - name: net_pts
+        data_type: double
+        description: ""
+
+      - name: team_fga_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_fta_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_fg_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_pts_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_reb_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_fg3_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_fg3a_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_fgm_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_ast_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_ft_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_fg3m_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_dreb_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_ftm_rank
+        data_type: bigint
+        description: ""
+
+      - name: team_oreb_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fgm_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_ast_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fga_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fta_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_reb_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fg3m_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fg_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fg3_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_dreb_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_ftm_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_fg3a_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_pts_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_ft_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: opponent_oreb_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fgm_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fga_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fta_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_reb_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_pts_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_ast_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fg_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fg3a_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_ftm_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fg3_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_dreb_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_fg3m_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_ft_pct_rank
+        data_type: bigint
+        description: ""
+
+      - name: net_oreb_rank
+        data_type: bigint
+        description: ""

@@ -1,0 +1,158 @@
+version: 2
+
+models:
+  - name: stg_game_stats
+    description: ""
+    columns:
+      - name: season
+        data_type: varchar
+        description: ""
+
+      - name: season_id
+        data_type: bigint
+        description: ""
+
+      - name: game_id
+        data_type: varchar
+        description: ""
+
+      - name: game_date
+        data_type: timestamp
+        description: ""
+
+      - name: game_location
+        data_type: varchar
+        description: ""
+
+      - name: win_loss
+        data_type: varchar
+        description: ""
+
+      - name: team
+        data_type: varchar
+        description: ""
+
+      - name: team_name
+        data_type: varchar
+        description: ""
+
+      - name: opponent
+        data_type: varchar
+        description: ""
+
+      - name: opponent_name
+        data_type: varchar
+        description: ""
+
+      - name: team_fga
+        data_type: double
+        description: ""
+
+      - name: team_fgm
+        data_type: double
+        description: ""
+
+      - name: team_ast
+        data_type: double
+        description: ""
+
+      - name: team_fg3a
+        data_type: double
+        description: ""
+
+      - name: team_fg3m
+        data_type: double
+        description: ""
+
+      - name: team_reb
+        data_type: double
+        description: ""
+
+      - name: team_ft_pct
+        data_type: double
+        description: ""
+
+      - name: team_oreb
+        data_type: double
+        description: ""
+
+      - name: team_pts
+        data_type: double
+        description: ""
+
+      - name: team_fta
+        data_type: double
+        description: ""
+
+      - name: team_fg_pct
+        data_type: double
+        description: ""
+
+      - name: team_fg3_pct
+        data_type: double
+        description: ""
+
+      - name: team_dreb
+        data_type: double
+        description: ""
+
+      - name: team_ftm
+        data_type: double
+        description: ""
+
+      - name: opponent_fg3a
+        data_type: double
+        description: ""
+
+      - name: opponent_fg3m
+        data_type: double
+        description: ""
+
+      - name: opponent_fga
+        data_type: double
+        description: ""
+
+      - name: opponent_fta
+        data_type: double
+        description: ""
+
+      - name: opponent_pts
+        data_type: double
+        description: ""
+
+      - name: opponent_fg_pct
+        data_type: double
+        description: ""
+
+      - name: opponent_fg3_pct
+        data_type: double
+        description: ""
+
+      - name: opponent_dreb
+        data_type: double
+        description: ""
+
+      - name: opponent_reb
+        data_type: double
+        description: ""
+
+      - name: opponent_fgm
+        data_type: double
+        description: ""
+
+      - name: opponent_ast
+        data_type: double
+        description: ""
+
+      - name: opponent_ft_pct
+        data_type: double
+        description: ""
+
+      - name: opponent_oreb
+        data_type: double
+        description: ""
+
+      - name: opponent_ftm
+        data_type: double
+        description: ""
+

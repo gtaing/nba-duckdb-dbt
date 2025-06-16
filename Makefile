@@ -6,9 +6,24 @@ PROFILES_DIR = src/transform/nba_analytics
 DBT_CMD = uv run dbt
 DBT_OPTIONS = --project-dir $(PROJECT_DIR) --profiles-dir $(PROFILES_DIR)
 
-.PHONY: ingest debug-dbt-config transform test-ingest dbt-docs-serve dbt-compile dbt-deps dbt-clean dbt-test duckdb-ui clean dbt-seed
+.PHONY: help
 
 # Targets
+help:
+	@echo "Available commands:"
+	@echo "  make ingest            - Ingest files to duckdb"
+	@echo "  make debug-dbt-config  - Debug dbt config"
+	@echo "  make transform         - Transform data with dbt"
+	@echo "  make test-ingest       - Test code with pytest"
+	@echo "  make dbt-docs-serve    - Serve dbt documentation"
+	@echo "  make dbt-compile       - Compile dbt models"
+	@echo "  make dbt-deps          - Install dbt dependencies"
+	@echo "  make dbt-seed          - Run dbt seed"
+	@echo "  make dbt-clean         - Clean dbt project"
+	@echo "  make dbt-test          - Test dbt models"
+	@echo "  make duckdb-ui         - Start duckdb UI"
+	@echo "  make clean             - Clean up duckdb and dbt files"
+
 ingest:
 	@echo "🚀 Ingesting files to duckdb"
 	@uv run src/ingest/load.py

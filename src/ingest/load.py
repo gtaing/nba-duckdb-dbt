@@ -55,7 +55,7 @@ def load_csv_to_duckdb(file_path: str, table_name: str, duckdb_path: str = "nba.
         logger.error(f"Error loading CSV into DuckDB: {e}")
     
 if __name__ == "__main__":
-    load_csv_to_duckdb("src/data/game.csv", "game")
+    load_csv_to_duckdb("src/data/games.csv", "games")
 
 
 

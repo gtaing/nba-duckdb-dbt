@@ -1,0 +1,115 @@
+sources:
+  - name: raw
+    tables:
+      - name: games
+        columns:
+          - name: season_id
+            data_type: bigint
+          - name: team_id_home
+            data_type: bigint
+          - name: team_abbreviation_home
+            data_type: varchar
+          - name: team_name_home
+            data_type: varchar
+          - name: game_id
+            data_type: varchar
+          - name: game_date
+            data_type: timestamp
+          - name: matchup_home
+            data_type: varchar
+          - name: wl_home
+            data_type: varchar
+          - name: min
+            data_type: bigint
+          - name: fgm_home
+            data_type: double
+          - name: fga_home
+            data_type: double
+          - name: fg_pct_home
+            data_type: double
+          - name: fg3m_home
+            data_type: double
+          - name: fg3a_home
+            data_type: double
+          - name: fg3_pct_home
+            data_type: double
+          - name: ftm_home
+            data_type: double
+          - name: fta_home
+            data_type: double
+          - name: ft_pct_home
+            data_type: double
+          - name: oreb_home
+            data_type: double
+          - name: dreb_home
+            data_type: double
+          - name: reb_home
+            data_type: double
+          - name: ast_home
+            data_type: double
+          - name: stl_home
+            data_type: double
+          - name: blk_home
+            data_type: double
+          - name: tov_home
+            data_type: double
+          - name: pf_home
+            data_type: double
+          - name: pts_home
+            data_type: double
+          - name: plus_minus_home
+            data_type: bigint
+          - name: video_available_home
+            data_type: bigint
+          - name: team_id_away
+            data_type: bigint
+          - name: team_abbreviation_away
+            data_type: varchar
+          - name: team_name_away
+            data_type: varchar
+          - name: matchup_away
+            data_type: varchar
+          - name: wl_away
+            data_type: varchar
+          - name: fgm_away
+            data_type: double
+          - name: fga_away
+            data_type: double
+          - name: fg_pct_away
+            data_type: double
+          - name: fg3m_away
+            data_type: double
+          - name: fg3a_away
+            data_type: double
+          - name: fg3_pct_away
+            data_type: double
+          - name: ftm_away
+            data_type: double
+          - name: fta_away
+            data_type: double
+          - name: ft_pct_away
+            data_type: double
+          - name: oreb_away
+            data_type: double
+          - name: dreb_away
+            data_type: double
+          - name: reb_away
+            data_type: double
+          - name: ast_away
+            data_type: double
+          - name: stl_away
+            data_type: double
+          - name: blk_away
+            data_type: double
+          - name: tov_away
+            data_type: double
+          - name: pf_away
+            data_type: double
+          - name: pts_away
+            data_type: double
+          - name: plus_minus_away
+            data_type: bigint
+          - name: video_available_away
+            data_type: bigint
+          - name: season_type
+            data_type: varchar

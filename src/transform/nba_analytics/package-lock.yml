@@ -3,4 +3,6 @@ packages:
     revision: e54329c3971c8c397f284a36de6a627832a24263
   - package: dbt-labs/dbt_utils
     version: 0.9.0
-sha1_hash: 863cce7bd64a00ef151412e77e47d1236fea6449
+  - package: dbt-labs/codegen
+    version: 0.13.1
+sha1_hash: 28a96ecc0ebad89cdef873da6b86ebf99425a214

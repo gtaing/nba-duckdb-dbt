@@ -18,3 +18,4 @@ wheels/
 
 # Target directories
 src/transform/nba_analytics/target/
+logs/
