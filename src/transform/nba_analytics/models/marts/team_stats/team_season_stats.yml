@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: game_stats_team
-    description: ""
+  - name: team_season_stats
+    description: "Aggregated team statistics for each season, including performance metrics and rankings."
     columns:
       - name: season_id
         data_type: bigint

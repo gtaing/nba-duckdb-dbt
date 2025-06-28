@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_game_stats
+  - name: stg_team_stats__opponents
     description: ""
     columns:
       - name: season

@@ -9,7 +9,7 @@ with mean_stats as (
   count(game_id) as total_games,
   {{ game_get_metric_mean('team_') }},
   {{ game_get_metric_mean('opponent_') }}
-from {{ dbt_unit_testing.ref('stg_game_stats') }}
+from {{ dbt_unit_testing.ref('stg_team_stats__opponents') }}
 group by season_id, team, team_name, season
 having total_games = 82
 order by season desc
