@@ -1,158 +1,349 @@
 version: 2
 
 models:
+  - name: base_team_stats__home
+    description: "Base stats for NBA teams playing at home, including opponent statistics."
+    columns:
+      - name: season_id
+        data_type: bigint
+        description: "Unique identifier for the NBA season"
+      - name: game_id
+        data_type: varchar
+        description: "Unique identifier for the game"
+      - name: game_date
+        data_type: timestamp
+        description: "Date when the game was played"
+      - name: game_location
+        data_type: varchar
+        description: "Location of the game (home or away)"
+      - name: win_loss
+        data_type: varchar
+        description: "Win or loss indicator for the team"
+      - name: team
+        data_type: varchar
+        description: "Abbreviation of the home team"
+      - name: team_name
+        data_type: varchar
+        description: "Full name of the home team"
+      - name: opponent
+        data_type: varchar
+        description: "Abbreviation of the opponent team"
+      - name: opponent_name
+        data_type: varchar
+        description: "Full name of the opponent team"
+      - name: team_pts
+        data_type: double
+        description: "Points scored by the home team"
+      - name: team_fgm
+        data_type: double
+        description: "Field goals made by the home team"
+      - name: team_fga
+        data_type: double
+        description: "Field goals attempted by the home team"
+      - name: team_fg_pct
+        data_type: double
+        description: "Field goal percentage for the home team"
+      - name: team_fg3m
+        data_type: double
+        description: "Three-point field goals made by the home team"
+      - name: team_fg3a
+        data_type: double
+        description: "Three-point field goals attempted by the home team"
+      - name: team_fg3_pct
+        data_type: double
+        description: "Three-point field goal percentage for the home team"
+      - name: team_ftm
+        data_type: double
+        description: "Free throws made by the home team"
+      - name: team_fta
+        data_type: double
+        description: "Free throws attempted by the home team"
+      - name: team_ft_pct
+        data_type: double
+        description: "Free throw percentage for the home team"
+      - name: team_oreb
+        data_type: double
+        description: "Offensive rebounds by the home team"
+      - name: team_dreb
+        data_type: double
+        description: "Defensive rebounds by the home team"
+      - name: team_reb
+        data_type: double
+        description: "Total rebounds by the home team"
+      - name: team_ast
+        data_type: double
+        description: "Assists by the home team"
+      - name: opponent_pts
+        data_type: double
+        description: "Points scored by the opponent team"
+      - name: opponent_fgm
+        data_type: double
+        description: "Field goals made by the opponent team"
+      - name: opponent_fga
+        data_type: double
+        description: "Field goals attempted by the opponent team"
+      - name: opponent_fg_pct
+        data_type: double
+        description: "Field goal percentage for the opponent team"
+      - name: opponent_fg3m
+        data_type: double
+        description: "Three-point field goals made by the opponent team"
+      - name: opponent_fg3a
+        data_type: double
+        description: "Three-point field goals attempted by the opponent team"
+      - name: opponent_fg3_pct
+        data_type: double
+        description: "Three-point field goal percentage for the opponent team"
+      - name: opponent_ftm
+        data_type: double
+        description: "Free throws made by the opponent team"
+      - name: opponent_fta
+        data_type: double
+        description: "Free throws attempted by the opponent team"
+      - name: opponent_ft_pct
+        data_type: double
+        description: "Free throw percentage for the opponent team"
+      - name: opponent_oreb
+        data_type: double
+        description: "Offensive rebounds by the opponent team"
+      - name: opponent_dreb
+        data_type: double
+        description: "Defensive rebounds by the opponent team"
+      - name: opponent_reb
+        data_type: double
+        description: "Total rebounds by the opponent team"
+      - name: opponent_ast
+        data_type: double
+        description: "Assists by the opponent team"
+
+  - name: base_team_stats__away
+    description: "Base stats for NBA teams playing away, including opponent statistics."
+    columns:
+      - name: season_id
+        data_type: bigint
+        description: "Unique identifier for the NBA season"
+      - name: game_id
+        data_type: varchar
+        description: "Unique identifier for the game"
+      - name: game_date
+        data_type: timestamp
+        description: "Date when the game was played"
+      - name: game_location
+        data_type: varchar
+        description: "Location of the game (home or away)"
+      - name: win_loss
+        data_type: varchar
+        description: "Win or loss indicator for the team"
+      - name: team
+        data_type: varchar
+        description: "Abbreviation of the away team"
+      - name: team_name
+        data_type: varchar
+        description: "Full name of the away team"
+      - name: opponent
+        data_type: varchar
+        description: "Abbreviation of the opponent team"
+      - name: opponent_name
+        data_type: varchar
+        description: "Full name of the opponent team"
+      - name: team_pts
+        data_type: double
+        description: "Points scored by the away team"
+      - name: team_fgm
+        data_type: double
+        description: "Field goals made by the away team"
+      - name: team_fga
+        data_type: double
+        description: "Field goals attempted by the away team"
+      - name: team_fg_pct
+        data_type: double
+        description: "Field goal percentage for the away team"
+      - name: team_fg3m
+        data_type: double
+        description: "Three-point field goals made by the away team"
+      - name: team_fg3a
+        data_type: double
+        description: "Three-point field goals attempted by the away team"
+      - name: team_fg3_pct
+        data_type: double
+        description: "Three-point field goal percentage for the away team"
+      - name: team_ftm
+        data_type: double
+        description: "Free throws made by the away team"
+      - name: team_fta
+        data_type: double
+        description: "Free throws attempted by the away team"
+      - name: team_ft_pct
+        data_type: double
+        description: "Free throw percentage for the away team"
+      - name: team_oreb
+        data_type: double
+        description: "Offensive rebounds by the away team"
+      - name: team_dreb
+        data_type: double
+        description: "Defensive rebounds by the away team"
+      - name: team_reb
+        data_type: double
+        description: "Total rebounds by the away team"
+      - name: team_ast
+        data_type: double
+        description: "Assists by the away team"
+      - name: opponent_pts
+        data_type: double
+        description: "Points scored by the opponent team"
+      - name: opponent_fgm
+        data_type: double
+        description: "Field goals made by the opponent team"
+      - name: opponent_fga
+        data_type: double
+        description: "Field goals attempted by the opponent team"
+      - name: opponent_fg_pct
+        data_type: double
+        description: "Field goal percentage for the opponent team"
+      - name: opponent_fg3m
+        data_type: double
+        description: "Three-point field goals made by the opponent team"
+      - name: opponent_fg3a
+        data_type: double
+        description: "Three-point field goals attempted by the opponent team"
+      - name: opponent_fg3_pct
+        data_type: double
+        description: "Three-point field goal percentage for the opponent team"
+      - name: opponent_ftm
+        data_type: double
+        description: "Free throws made by the opponent team"
+      - name: opponent_fta
+        data_type: double
+        description: "Free throws attempted by the opponent team"
+      - name: opponent_ft_pct
+        data_type: double
+        description: "Free throw percentage for the opponent team"
+      - name: opponent_oreb
+        data_type: double
+        description: "Offensive rebounds by the opponent team"
+      - name: opponent_dreb
+        data_type: double
+        description: "Defensive rebounds by the opponent team"
+      - name: opponent_reb
+        data_type: double
+        description: "Total rebounds by the opponent team"
+      - name: opponent_ast
+        data_type: double
+        description: "Assists by the opponent team"
   - name: stg_team_stats__opponents
-    description: ""
+    description: "Staging model for NBA team game stats with opponent statistics"
     columns:
       - name: season
         data_type: varchar
-        description: ""
-
+        description: "NBA season (e.g., '2022-2023')"
       - name: season_id
         data_type: bigint
-        description: ""
-
+        description: "Unique identifier for the NBA season"
       - name: game_id
         data_type: varchar
-        description: ""
-
+        description: "Unique identifier for the game"
       - name: game_date
         data_type: timestamp
-        description: ""
-
+        description: "Date when the game was played"
       - name: game_location
         data_type: varchar
-        description: ""
-
+        description: "Location of the game (home or away)"
       - name: win_loss
         data_type: varchar
-        description: ""
-
+        description: "Win or loss indicator for the team"
       - name: team
         data_type: varchar
-        description: ""
-
+        description: "Abbreviation of the team"
       - name: team_name
         data_type: varchar
-        description: ""
-
+        description: "Full name of the team"
       - name: opponent
         data_type: varchar
-        description: ""
-
+        description: "Abbreviation of the opponent team"
       - name: opponent_name
         data_type: varchar
-        description: ""
-
+        description: "Full name of the opponent team"
       - name: team_fga
         data_type: double
-        description: ""
-
+        description: "Field goals attempted by the team"
       - name: team_fgm
         data_type: double
-        description: ""
-
+        description: "Field goals made by the team"
       - name: team_ast
         data_type: double
-        description: ""
-
+        description: "Assists by the team"
       - name: team_fg3a
         data_type: double
-        description: ""
-
+        description: "Three-point field goals attempted by the team"
       - name: team_fg3m
         data_type: double
-        description: ""
-
+        description: "Three-point field goals made by the team"
       - name: team_reb
         data_type: double
-        description: ""
-
+        description: "Total rebounds by the team"
       - name: team_ft_pct
         data_type: double
-        description: ""
-
+        description: "Free throw percentage for the team"
       - name: team_oreb
         data_type: double
-        description: ""
-
+        description: "Offensive rebounds by the team"
       - name: team_pts
         data_type: double
-        description: ""
-
+        description: "Points scored by the team"
       - name: team_fta
         data_type: double
-        description: ""
-
+        description: "Free throws attempted by the team"
       - name: team_fg_pct
         data_type: double
-        description: ""
-
+        description: "Field goal percentage for the team"
       - name: team_fg3_pct
         data_type: double
-        description: ""
-
+        description: "Three-point field goal percentage for the team"
       - name: team_dreb
         data_type: double
-        description: ""
-
+        description: "Defensive rebounds by the team"
       - name: team_ftm
         data_type: double
-        description: ""
-
+        description: "Free throws made by the team"
       - name: opponent_fg3a
         data_type: double
-        description: ""
-
+        description: "Three-point field goals attempted by the opponent"
       - name: opponent_fg3m
         data_type: double
-        description: ""
-
+        description: "Three-point field goals made by the opponent"
       - name: opponent_fga
         data_type: double
-        description: ""
-
+        description: "Field goals attempted by the opponent"
       - name: opponent_fta
         data_type: double
-        description: ""
-
+        description: "Free throws attempted by the opponent"
       - name: opponent_pts
         data_type: double
-        description: ""
-
+        description: "Points scored by the opponent"
       - name: opponent_fg_pct
         data_type: double
-        description: ""
-
+        description: "Field goal percentage for the opponent"
       - name: opponent_fg3_pct
         data_type: double
-        description: ""
-
+        description: "Three-point field goal percentage for the opponent"
       - name: opponent_dreb
         data_type: double
-        description: ""
-
+        description: "Defensive rebounds by the opponent"
       - name: opponent_reb
         data_type: double
-        description: ""
-
+        description: "Total rebounds by the opponent"
       - name: opponent_fgm
         data_type: double
-        description: ""
-
+        description: "Field goals made by the opponent"
       - name: opponent_ast
         data_type: double
-        description: ""
-
+        description: "Assists by the opponent"
       - name: opponent_ft_pct
         data_type: double
-        description: ""
-
+        description: "Free throw percentage for the opponent"
       - name: opponent_oreb
         data_type: double
-        description: ""
-
+        description: "Offensive rebounds by the opponent"
       - name: opponent_ftm
         data_type: double
-        description: ""
-
+        description: "Free throws made by the opponent"

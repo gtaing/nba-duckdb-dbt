@@ -6,364 +6,364 @@ models:
     columns:
       - name: season_id
         data_type: bigint
-        description: ""
+        description: "Unique identifier for the NBA season"
 
       - name: team
         data_type: varchar
-        description: ""
+        description: "Abbreviation of the team"
 
       - name: team_name
         data_type: varchar
-        description: ""
+        description: "Full name of the team"
 
       - name: season
         data_type: varchar
-        description: ""
+        description: "NBA season (e.g., '2022-2023')"
 
       - name: wins
         data_type: hugeint
-        description: ""
+        description: "Number of games won by the team in the season"
 
       - name: losses
         data_type: hugeint
-        description: ""
+        description: "Number of games lost by the team in the season"
 
       - name: total_games
         data_type: bigint
-        description: ""
+        description: "Total number of games played by the team in the season"
 
       - name: team_fgm
         data_type: double
-        description: ""
+        description: "Average field goals made by the team per game"
 
       - name: team_ast
         data_type: double
-        description: ""
+        description: "Average assists by the team per game"
 
       - name: team_fg3m
         data_type: double
-        description: ""
+        description: "Average three-point field goals made by the team per game"
 
       - name: team_ft_pct
         data_type: double
-        description: ""
+        description: "Average free throw percentage for the team"
 
       - name: team_oreb
         data_type: double
-        description: ""
+        description: "Average offensive rebounds by the team per game"
 
       - name: team_reb
         data_type: double
-        description: ""
+        description: "Average total rebounds by the team per game"
 
       - name: team_fg_pct
         data_type: double
-        description: ""
+        description: "Average field goal percentage for the team"
 
       - name: team_fg3_pct
         data_type: double
-        description: ""
+        description: "Average three-point field goal percentage for the team"
 
       - name: team_dreb
         data_type: double
-        description: ""
+        description: "Average defensive rebounds by the team per game"
 
       - name: team_fg3a
         data_type: double
-        description: ""
+        description: "Average three-point field goals attempted by the team per game"
 
       - name: team_fga
         data_type: double
-        description: ""
+        description: "Average field goals attempted by the team per game"
 
       - name: team_fta
         data_type: double
-        description: ""
+        description: "Average free throws attempted by the team per game"
 
       - name: team_ftm
         data_type: double
-        description: ""
+        description: "Average free throws made by the team per game"
 
       - name: team_pts
         data_type: double
-        description: ""
+        description: "Average points scored by the team per game"
 
       - name: opponent_fgm
         data_type: double
-        description: ""
+        description: "Average field goals made by opponents per game"
 
       - name: opponent_ast
         data_type: double
-        description: ""
+        description: "Average assists by opponents per game"
 
       - name: opponent_fg3m
         data_type: double
-        description: ""
+        description: "Average three-point field goals made by opponents per game"
 
       - name: opponent_fg_pct
         data_type: double
-        description: ""
+        description: "Average field goal percentage for opponents"
 
       - name: opponent_fg3_pct
         data_type: double
-        description: ""
+        description: "Average three-point field goal percentage for opponents"
 
       - name: opponent_dreb
         data_type: double
-        description: ""
+        description: "Average defensive rebounds by opponents per game"
 
       - name: opponent_pts
         data_type: double
-        description: ""
+        description: "Average points scored by opponents per game"
 
       - name: opponent_fg3a
         data_type: double
-        description: ""
+        description: "Average three-point field goals attempted by opponents per game"
 
       - name: opponent_ft_pct
         data_type: double
-        description: ""
+        description: "Average free throw percentage for opponents"
 
       - name: opponent_oreb
         data_type: double
-        description: ""
+        description: "Average offensive rebounds by opponents per game"
 
       - name: opponent_fga
         data_type: double
-        description: ""
+        description: "Average field goals attempted by opponents per game"
 
       - name: opponent_fta
         data_type: double
-        description: ""
+        description: "Average free throws attempted by opponents per game"
 
       - name: opponent_ftm
         data_type: double
-        description: ""
+        description: "Average free throws made by opponents per game"
 
       - name: opponent_reb
         data_type: double
-        description: ""
+        description: "Average total rebounds by opponents per game"
 
       - name: net_fgm
         data_type: double
-        description: ""
+        description: "Net field goals made (team minus opponent) per game"
 
       - name: net_ast
         data_type: double
-        description: ""
+        description: "Net assists (team minus opponent) per game"
 
       - name: net_reb
         data_type: double
-        description: ""
+        description: "Net total rebounds (team minus opponent) per game"
 
       - name: net_fg3a
         data_type: double
-        description: ""
+        description: "Net three-point field goals attempted (team minus opponent) per game"
 
       - name: net_ftm
         data_type: double
-        description: ""
+        description: "Net free throws made (team minus opponent) per game"
 
       - name: net_fg_pct
         data_type: double
-        description: ""
+        description: "Net field goal percentage (team minus opponent) per game"
 
       - name: net_fg3_pct
         data_type: double
-        description: ""
+        description: "Net three-point field goal percentage (team minus opponent) per game"
 
       - name: net_dreb
         data_type: double
-        description: ""
+        description: "Net defensive rebounds (team minus opponent) per game"
 
       - name: net_fg3m
         data_type: double
-        description: ""
+        description: "Net three-point field goals made (team minus opponent) per game"
 
       - name: net_fga
         data_type: double
-        description: ""
+        description: "Net field goals attempted (team minus opponent) per game"
 
       - name: net_fta
         data_type: double
-        description: ""
+        description: "Net free throws attempted (team minus opponent) per game"
 
       - name: net_ft_pct
         data_type: double
-        description: ""
+        description: "Net free throw percentage (team minus opponent) per game"
 
       - name: net_oreb
         data_type: double
-        description: ""
+        description: "Net offensive rebounds (team minus opponent) per game"
 
       - name: net_pts
         data_type: double
-        description: ""
+        description: "Net points scored (team minus opponent) per game"
 
       - name: team_fga_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in field goals attempted among all teams in the season"
 
       - name: team_fta_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in free throws attempted among all teams in the season"
 
       - name: team_fg_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in field goal percentage among all teams in the season"
 
       - name: team_pts_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in points scored among all teams in the season"
 
       - name: team_reb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in total rebounds among all teams in the season"
 
       - name: team_fg3_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in three-point field goal percentage among all teams in the season"
 
       - name: team_fg3a_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in three-point field goals attempted among all teams in the season"
 
       - name: team_fgm_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in field goals made among all teams in the season"
 
       - name: team_ast_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in assists among all teams in the season"
 
       - name: team_ft_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in free throw percentage among all teams in the season"
 
       - name: team_fg3m_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in three-point field goals made among all teams in the season"
 
       - name: team_dreb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in defensive rebounds among all teams in the season"
 
       - name: team_ftm_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in free throws made among all teams in the season"
 
       - name: team_oreb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in offensive rebounds among all teams in the season"
 
       - name: opponent_fgm_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in field goals made among all teams in the season"
 
       - name: opponent_ast_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in assists among all teams in the season"
 
       - name: opponent_fga_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in field goals attempted among all teams in the season"
 
       - name: opponent_fta_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in free throws attempted among all teams in the season"
 
       - name: opponent_reb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in total rebounds among all teams in the season"
 
       - name: opponent_fg3m_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in three-point field goals made among all teams in the season"
 
       - name: opponent_fg_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in field goal percentage among all teams in the season"
 
       - name: opponent_fg3_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in three-point field goal percentage among all teams in the season"
 
       - name: opponent_dreb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in defensive rebounds among all teams in the season"
 
       - name: opponent_ftm_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in free throws made among all teams in the season"
 
       - name: opponent_fg3a_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in three-point field goals attempted among all teams in the season"
 
       - name: opponent_pts_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in points scored among all teams in the season"
 
       - name: opponent_ft_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in free throw percentage among all teams in the season"
 
       - name: opponent_oreb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the opponents in offensive rebounds among all teams in the season"
 
       - name: net_fgm_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net field goals made (team minus opponent) among all teams in the season"
 
       - name: net_fga_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net field goals attempted (team minus opponent) among all teams in the season"
 
       - name: net_fta_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net free throws attempted (team minus opponent) among all teams in the season"
 
       - name: net_reb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net total rebounds (team minus opponent) among all teams in the season"
 
       - name: net_pts_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net points scored (team minus opponent) among all teams in the season"
 
       - name: net_ast_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net assists (team minus opponent) among all teams in the season"
 
       - name: net_fg_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net field goal percentage (team minus opponent) among all teams in the season"
 
       - name: net_fg3a_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net three-point field goals attempted (team minus opponent) among all teams in the season"
 
       - name: net_ftm_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net free throws made (team minus opponent) among all teams in the season"
 
       - name: net_fg3_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net three-point field goal percentage (team minus opponent) among all teams in the season"
 
       - name: net_dreb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net defensive rebounds (team minus opponent) among all teams in the season"
 
       - name: net_fg3m_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net three-point field goals made (team minus opponent) among all teams in the season"
 
       - name: net_ft_pct_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net free throw percentage (team minus opponent) among all teams in the season"
 
       - name: net_oreb_rank
         data_type: bigint
-        description: ""
+        description: "Rank of the team in net offensive rebounds (team minus opponent) among all teams in the season"

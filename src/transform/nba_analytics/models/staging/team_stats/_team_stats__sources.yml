@@ -2,114 +2,170 @@ sources:
   - name: raw
     tables:
       - name: games
+        description: "Raw data of NBA games including team statistics for both home and away teams"
         columns:
           - name: season_id
             data_type: bigint
+            description: "Unique identifier for the NBA season"
           - name: team_id_home
             data_type: bigint
+            description: "Unique identifier for the home team"
           - name: team_abbreviation_home
             data_type: varchar
+            description: "Abbreviation of the home team"
           - name: team_name_home
             data_type: varchar
+            description: "Full name of the home team"
           - name: game_id
             data_type: varchar
+            description: "Unique identifier for the game"
           - name: game_date
             data_type: timestamp
+            description: "Date when the game was played"
           - name: matchup_home
             data_type: varchar
+            description: "Matchup string for the home team (e.g., 'LAL vs BOS')"
           - name: wl_home
             data_type: varchar
+            description: "Win or loss indicator for the home team"
           - name: min
             data_type: bigint
+            description: "Total minutes played by the home team"
           - name: fgm_home
             data_type: double
+            description: "Field goals made by the home team"
           - name: fga_home
             data_type: double
+            description: "Field goals attempted by the home team"
           - name: fg_pct_home
             data_type: double
+            description: "Field goal percentage for the home team"
           - name: fg3m_home
             data_type: double
+            description: "Three-point field goals made by the home team"
           - name: fg3a_home
             data_type: double
+            description: "Three-point field goals attempted by the home team"
           - name: fg3_pct_home
             data_type: double
+            description: "Three-point field goal percentage for the home team"
           - name: ftm_home
             data_type: double
+            description: "Free throws made by the home team"
           - name: fta_home
             data_type: double
+            description: "Free throws attempted by the home team"
           - name: ft_pct_home
             data_type: double
+            description: "Free throw percentage for the home team"
           - name: oreb_home
             data_type: double
+            description: "Offensive rebounds by the home team"
           - name: dreb_home
             data_type: double
+            description: "Defensive rebounds by the home team"
           - name: reb_home
             data_type: double
+            description: "Total rebounds by the home team"
           - name: ast_home
             data_type: double
+            description: "Assists by the home team"
           - name: stl_home
             data_type: double
+            description: "Steals by the home team"
           - name: blk_home
             data_type: double
+            description: "Blocks by the home team"
           - name: tov_home
             data_type: double
+            description: "Turnovers by the home team"
           - name: pf_home
             data_type: double
+            description: "Personal fouls by the home team"
           - name: pts_home
             data_type: double
+            description: "Points scored by the home team"
           - name: plus_minus_home
             data_type: bigint
+            description: "Plus/minus statistic for the home team"
           - name: video_available_home
             data_type: bigint
+            description: "Indicator if video is available for the home team"
           - name: team_id_away
             data_type: bigint
+            description: "Unique identifier for the away team"
           - name: team_abbreviation_away
             data_type: varchar
+            description: "Abbreviation of the away team"
           - name: team_name_away
             data_type: varchar
+            description: "Full name of the away team"
           - name: matchup_away
             data_type: varchar
+            description: "Matchup string for the away team (e.g., 'BOS @ LAL')"
           - name: wl_away
             data_type: varchar
+            description: "Win or loss indicator for the away team"
           - name: fgm_away
             data_type: double
+            description: "Field goals made by the away team"
           - name: fga_away
             data_type: double
+            description: "Field goals attempted by the away team"
           - name: fg_pct_away
             data_type: double
+            description: "Field goal percentage for the away team"
           - name: fg3m_away
             data_type: double
+            description: "Three-point field goals made by the away team"
           - name: fg3a_away
             data_type: double
+            description: "Three-point field goals attempted by the away team"
           - name: fg3_pct_away
             data_type: double
+            description: "Three-point field goal percentage for the away team"
           - name: ftm_away
             data_type: double
+            description: "Free throws made by the away team"
           - name: fta_away
             data_type: double
+            description: "Free throws attempted by the away team"
           - name: ft_pct_away
             data_type: double
+            description: "Free throw percentage for the away team"
           - name: oreb_away
             data_type: double
+            description: "Offensive rebounds by the away team"
           - name: dreb_away
             data_type: double
+            description: "Defensive rebounds by the away team"
           - name: reb_away
             data_type: double
+            description: "Total rebounds by the away team"
           - name: ast_away
             data_type: double
+            description: "Assists by the away team"
           - name: stl_away
             data_type: double
+            description: "Steals by the away team"
           - name: blk_away
             data_type: double
+            description: "Blocks by the away team"
           - name: tov_away
             data_type: double
+            description: "Turnovers by the away team"
           - name: pf_away
             data_type: double
+            description: "Personal fouls by the away team"
           - name: pts_away
             data_type: double
+            description: "Points scored by the away team"
           - name: plus_minus_away
             data_type: bigint
+            description: "Plus/minus statistic for the away team"
           - name: video_available_away
             data_type: bigint
+            description: "Indicator if video is available for the away team"
           - name: season_type
             data_type: varchar
+            description: "Type of NBA season (e.g., Regular, Playoffs)"
