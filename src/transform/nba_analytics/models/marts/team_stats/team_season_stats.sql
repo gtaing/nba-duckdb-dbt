@@ -4,8 +4,8 @@ with mean_stats as (
   team,
   team_name,
   season,
-  sum(case when win_loss = 'w' then 1 else 0 end) as wins,
-  sum(case when win_loss = 'l' then 1 else 0 end) as losses,
+  count(win_loss) filter (where win_loss = 'W') as wins,
+  count(win_loss) filter (where win_loss = 'L') as losses,
   count(game_id) as total_games,
   {{ game_get_metric_mean('team_') }},
   {{ game_get_metric_mean('opponent_') }}
