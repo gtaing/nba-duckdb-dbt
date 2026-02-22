@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ dbt_unit_testing.source('raw', 'games') }}
+    select * from {{ source('raw', 'games') }}
 ),
 
 final as (

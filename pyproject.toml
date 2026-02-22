@@ -10,6 +10,7 @@ dependencies = [
     "pandas>=2.2.3",
     "polars>=1.28.1",
     "pyarrow>=20.0.0",
+    "sqlfluff>=3.4.0",
 ]
 
 [dependency-groups]

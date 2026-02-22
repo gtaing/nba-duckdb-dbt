@@ -40,6 +40,14 @@ test-ingest:
 	@echo "🚀 Testing code: Running pytest"
 	@uv run -m pytest tests
 
+dbt-sqlfluff-lint:
+	@echo "🚀 Applying sqlfluff on dbt models in: $(PROJECT_DIR)"
+	@uv run -m sqlfluff lint $(PROJECT_DIR)
+
+dbt-sqlfluff-fix:
+	@echo "🚀 Applying sqlfluff on dbt models in: $(PROJECT_DIR)"
+	@uv run -m sqlfluff fix $(PROJECT_DIR)
+
 dbt-docs-serve:
 	@echo "🚀 Generating dbt docs"
 	@$(DBT_CMD) docs generate $(DBT_OPTIONS)

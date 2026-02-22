@@ -1,9 +1,9 @@
 with team_stats_home as (
-    select * from {{ dbt_unit_testing.ref("base_team_stats__home") }}
+    select * from {{ ref("base_team_stats__home") }}
 ),
 
 team_stats_away as (
-    select * from {{ dbt_unit_testing.ref("base_team_stats__away") }}
+    select * from {{ ref("base_team_stats__away") }}
 ),
 
 full_games as (
