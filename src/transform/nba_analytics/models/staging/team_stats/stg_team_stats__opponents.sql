@@ -1,30 +1,30 @@
-with team_stats_home as (
-    select * from {{ ref("base_team_stats__home") }}
-),
-
-team_stats_away as (
-    select * from {{ ref("base_team_stats__away") }}
-),
-
-full_games as (
-    select * from team_stats_home
-    union
-    select * from team_stats_away
-    where year(cast(game_date as date)) >= 2012
+WITH team_stats_home AS (
+    SELECT * FROM {{ ref("base_team_stats__home") }}
 )
 
-select
-    *,
-    concat_ws(
-        '-',
-        year(min(game_date) over (partition by season_id)),
-        right(
+, team_stats_away AS (
+    SELECT * FROM {{ ref("base_team_stats__away") }}
+)
+
+, full_games AS (
+    SELECT * FROM team_stats_home
+    UNION
+    SELECT * FROM team_stats_away
+    WHERE year(cast(game_date AS date)) >= 2012
+)
+
+SELECT
+    *
+    , concat_ws(
+        '-'
+        , year(min(game_date) OVER (PARTITION BY season_id))
+        , right(
             cast(
                 year(
-                    max(game_date) over (partition by season_id)
-                ) as string
-            ),
-            2
+                    max(game_date) OVER (PARTITION BY season_id)
+                ) AS string
+            )
+            , 2
         )
-    ) as season
-from full_games
+    ) AS season
+FROM full_games
