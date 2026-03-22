@@ -14,6 +14,8 @@ help:
 	@echo "  make ingest            - Ingest files to duckdb"
 	@echo "  make debug-dbt-config  - Debug dbt config"
 	@echo "  make transform         - Transform data with dbt"
+	@echo "  dbt-sqlfluff-lint      - Lint with sqlfluff"
+	@echo "  dbt-sqlfluff-fix       - Fix formatting with sqlfluff"
 	@echo "  make test-ingest       - Test code with pytest"
 	@echo "  make dbt-docs-serve    - Serve dbt documentation"
 	@echo "  make dbt-compile       - Compile dbt models"
@@ -33,19 +35,19 @@ debug-dbt-config:
 	@$(DBT_CMD) debug $(DBT_OPTIONS)
 
 transform: ingest dbt-seed
-	@echo "🚀 Transforming with dbt"s
-	@$(DBT_CMD) run $(DBT_OPTIONS)
+	@echo "🚀 Transforming with dbt"
+	@$(DBT_CMD) build $(DBT_OPTIONS)
 
 test-ingest:
 	@echo "🚀 Testing code: Running pytest"
 	@uv run -m pytest tests
 
 dbt-sqlfluff-lint:
-	@echo "🚀 Applying sqlfluff on dbt models in: $(PROJECT_DIR)"
+	@echo "🚀 Applying sqlfluff linting on dbt models in: $(PROJECT_DIR)"
 	@uv run -m sqlfluff lint $(PROJECT_DIR)
 
 dbt-sqlfluff-fix:
-	@echo "🚀 Applying sqlfluff on dbt models in: $(PROJECT_DIR)"
+	@echo "🚀 Applying sqlfluff fixing on dbt models in: $(PROJECT_DIR)"
 	@uv run -m sqlfluff fix $(PROJECT_DIR)
 
 dbt-docs-serve:

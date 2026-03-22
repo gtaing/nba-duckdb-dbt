@@ -21,11 +21,11 @@ models:
         description: "NBA season (e.g., '2022-2023')"
 
       - name: wins
-        data_type: hugeint
+        data_type: bigint
         description: "Number of games won by the team in the season"
 
       - name: losses
-        data_type: hugeint
+        data_type: bigint
         description: "Number of games lost by the team in the season"
 
       - name: total_games

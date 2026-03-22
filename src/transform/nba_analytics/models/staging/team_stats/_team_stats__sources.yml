@@ -1,5 +1,7 @@
 sources:
   - name: raw
+    config:
+      event_time: game_date
     tables:
       - name: games
         description: "Raw data of NBA games including team statistics for both home and away teams"

@@ -12,9 +12,9 @@ WITH stg_team_stats__opponents AS (
         , season
         , count(win_loss) FILTER (WHERE win_loss = 'W') AS wins
         , count(win_loss) FILTER (WHERE win_loss = 'L') AS losses
-        , count(game_id) AS total_games,
-        {{ game_get_metric_mean('team_') }},
-        {{ game_get_metric_mean('opponent_') }}
+        , count(game_id) AS total_games
+        , {{ game_get_metric_mean('team_') }}
+        , {{ game_get_metric_mean('opponent_') }}
     FROM
         stg_team_stats__opponents
     GROUP BY
@@ -26,9 +26,9 @@ WITH stg_team_stats__opponents AS (
 )
 
 SELECT
-    m.*,
-    {{ game_get_metric_net() }},
-    {{ game_get_metric_rank('team_') }},
-    {{ game_get_metric_rank('opponent_') }},
-    {{ game_get_metric_rank('net_') }}
+    m.*
+    , {{ game_get_metric_net() }}
+    , {{ game_get_metric_rank('team_') }}
+    , {{ game_get_metric_rank('opponent_') }}
+    , {{ game_get_metric_rank('net_') }}
 FROM mean_stats AS m

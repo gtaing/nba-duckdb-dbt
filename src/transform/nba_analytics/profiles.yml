@@ -1,8 +1,8 @@
 nba_analytics:
   outputs:
-    dev:
+    local:
       type: duckdb
       path: nba.duckdb
       threads: 1
 
-  target: dev
+  target: local

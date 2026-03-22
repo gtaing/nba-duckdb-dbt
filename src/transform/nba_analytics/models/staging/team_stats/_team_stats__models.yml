@@ -13,6 +13,9 @@ models:
       - name: game_date
         data_type: timestamp
         description: "Date when the game was played"
+      - name: season
+        data_type: varchar
+        description: "NBA season (e.g., '2022-2023')"
       - name: game_location
         data_type: varchar
         description: "Location of the game (home or away)"
@@ -128,6 +131,9 @@ models:
       - name: game_date
         data_type: timestamp
         description: "Date when the game was played"
+      - name: season
+        data_type: varchar
+        description: "NBA season (e.g., '2022-2023')"
       - name: game_location
         data_type: varchar
         description: "Location of the game (home or away)"
