@@ -34,7 +34,7 @@ debug-dbt-config:
 	@echo "🚀 Debug dbt config"
 	@$(DBT_CMD) debug $(DBT_OPTIONS)
 
-transform: ingest dbt-seed dbt-deps
+transform: ingest dbt-seed
 	@echo "🚀 Transforming with dbt"
 	@$(DBT_CMD) build -f $(DBT_OPTIONS)
 
