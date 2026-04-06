@@ -9,6 +9,8 @@ sources:
           - name: season_id
             data_type: bigint
             description: "Unique identifier for the NBA season"
+            data_tests:
+              - not_null
           - name: team_id_home
             data_type: bigint
             description: "Unique identifier for the home team"
@@ -21,6 +23,9 @@ sources:
           - name: game_id
             data_type: varchar
             description: "Unique identifier for the game"
+            data_tests:
+              - not_null
+              - unique
           - name: game_date
             data_type: timestamp
             description: "Date when the game was played"

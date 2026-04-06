@@ -34,9 +34,9 @@ debug-dbt-config:
 	@echo "🚀 Debug dbt config"
 	@$(DBT_CMD) debug $(DBT_OPTIONS)
 
-transform: ingest dbt-seed
+transform: ingest dbt-seed dbt-deps
 	@echo "🚀 Transforming with dbt"
-	@$(DBT_CMD) build $(DBT_OPTIONS)
+	@$(DBT_CMD) build -f $(DBT_OPTIONS)
 
 test-ingest:
 	@echo "🚀 Testing code: Running pytest"
@@ -74,6 +74,14 @@ dbt-clean:
 dbt-test:
 	@echo "🚀 Testing dbt models"
 	@$(DBT_CMD) test $(DBT_OPTIONS)
+
+dbt-generate-yaml-for-model:
+	@echo "🚀 Generating yaml for $(DBT_MODEL)"
+	@$(DBT_CMD) run-operation generate_model_yaml --args '{"model_names": ["$(DBT_MODEL)"]}' $(DBT_OPTIONS)
+
+dbt-generate-unit-test-for-model:
+	@echo "🚀 Generating unit test for $(DBT_MODEL)"
+	@$(DBT_CMD) run-operation generate_unit_test_template --args '{"model_name": "$(DBT_MODEL)", "inline_columns": false}' $(DBT_OPTIONS)
 
 duckdb-ui:
 	@echo "🚀 Starting duckdb UI"

@@ -26,7 +26,6 @@ seeds:
   nba_analytics:
     # Config indicated by + and applies to all files under seeds/
     +enabled: true
-    metrics:
       
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models

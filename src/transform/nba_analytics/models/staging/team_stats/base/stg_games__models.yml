@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: base_team_stats__home
+  - name: stg_games__team_stats_home
     description: "Base stats for NBA teams playing at home, including opponent statistics."
     columns:
       - name: season_id
@@ -119,7 +119,7 @@ models:
         data_type: double
         description: "Assists by the opponent team"
 
-  - name: base_team_stats__away
+  - name: stg_games__team_stats_away
     description: "Base stats for NBA teams playing away, including opponent statistics."
     columns:
       - name: season_id
@@ -236,120 +236,258 @@ models:
       - name: opponent_ast
         data_type: double
         description: "Assists by the opponent team"
-  - name: stg_team_stats__opponents
-    description: "Staging model for NBA team game stats with opponent statistics"
-    columns:
-      - name: season
-        data_type: varchar
-        description: "NBA season (e.g., '2022-2023')"
-      - name: season_id
-        data_type: bigint
-        description: "Unique identifier for the NBA season"
-      - name: game_id
-        data_type: varchar
-        description: "Unique identifier for the game"
-      - name: game_date
-        data_type: timestamp
-        description: "Date when the game was played"
-      - name: game_location
-        data_type: varchar
-        description: "Location of the game (home or away)"
-      - name: win_loss
-        data_type: varchar
-        description: "Win or loss indicator for the team"
-      - name: team
-        data_type: varchar
-        description: "Abbreviation of the team"
-      - name: team_name
-        data_type: varchar
-        description: "Full name of the team"
-      - name: opponent
-        data_type: varchar
-        description: "Abbreviation of the opponent team"
-      - name: opponent_name
-        data_type: varchar
-        description: "Full name of the opponent team"
-      - name: team_fga
-        data_type: double
-        description: "Field goals attempted by the team"
-      - name: team_fgm
-        data_type: double
-        description: "Field goals made by the team"
-      - name: team_ast
-        data_type: double
-        description: "Assists by the team"
-      - name: team_fg3a
-        data_type: double
-        description: "Three-point field goals attempted by the team"
-      - name: team_fg3m
-        data_type: double
-        description: "Three-point field goals made by the team"
-      - name: team_reb
-        data_type: double
-        description: "Total rebounds by the team"
-      - name: team_ft_pct
-        data_type: double
-        description: "Free throw percentage for the team"
-      - name: team_oreb
-        data_type: double
-        description: "Offensive rebounds by the team"
-      - name: team_pts
-        data_type: double
-        description: "Points scored by the team"
-      - name: team_fta
-        data_type: double
-        description: "Free throws attempted by the team"
-      - name: team_fg_pct
-        data_type: double
-        description: "Field goal percentage for the team"
-      - name: team_fg3_pct
-        data_type: double
-        description: "Three-point field goal percentage for the team"
-      - name: team_dreb
-        data_type: double
-        description: "Defensive rebounds by the team"
-      - name: team_ftm
-        data_type: double
-        description: "Free throws made by the team"
-      - name: opponent_fg3a
-        data_type: double
-        description: "Three-point field goals attempted by the opponent"
-      - name: opponent_fg3m
-        data_type: double
-        description: "Three-point field goals made by the opponent"
-      - name: opponent_fga
-        data_type: double
-        description: "Field goals attempted by the opponent"
-      - name: opponent_fta
-        data_type: double
-        description: "Free throws attempted by the opponent"
-      - name: opponent_pts
-        data_type: double
-        description: "Points scored by the opponent"
-      - name: opponent_fg_pct
-        data_type: double
-        description: "Field goal percentage for the opponent"
-      - name: opponent_fg3_pct
-        data_type: double
-        description: "Three-point field goal percentage for the opponent"
-      - name: opponent_dreb
-        data_type: double
-        description: "Defensive rebounds by the opponent"
-      - name: opponent_reb
-        data_type: double
-        description: "Total rebounds by the opponent"
-      - name: opponent_fgm
-        data_type: double
-        description: "Field goals made by the opponent"
-      - name: opponent_ast
-        data_type: double
-        description: "Assists by the opponent"
-      - name: opponent_ft_pct
-        data_type: double
-        description: "Free throw percentage for the opponent"
-      - name: opponent_oreb
-        data_type: double
-        description: "Offensive rebounds by the opponent"
-      - name: opponent_ftm
-        data_type: double
-        description: "Free throws made by the opponent"
+
+unit_tests:
+  - name: unit_test_incremental_stg_games__team_stats_away
+    model: stg_games__team_stats_away
+
+    overrides:
+      macros:
+        is_incremental: true
+
+    given:
+      - input: source("raw", "games")
+        rows:
+          - season_id: 22022
+            team_id_home: 1610612747
+            team_abbreviation_home: LAL
+            team_name_home: Los Angeles Lakers
+            game_id: "0022200500"
+            game_date: "2023-01-15"
+            matchup_home: LAL vs. BOS
+            wl_home: L
+            min: 240
+            fgm_home: 38
+            fga_home: 88
+            fg_pct_home: 0.432
+            fg3m_home: 10
+            fg3a_home: 32
+            fg3_pct_home: 0.313
+            ftm_home: 14
+            fta_home: 18
+            ft_pct_home: 0.778
+            oreb_home: 8
+            dreb_home: 32
+            reb_home: 40
+            ast_home: 22
+            stl_home: 5
+            blk_home: 4
+            tov_home: 12
+            pf_home: 18
+            pts_home: 100
+            plus_minus_home: -8
+            video_available_home: 1
+            team_id_away: 1610612738
+            team_abbreviation_away: BOS
+            team_name_away: Boston Celtics
+            matchup_away: BOS @ LAL
+            wl_away: W
+            fgm_away: 42
+            fga_away: 90
+            fg_pct_away: 0.467
+            fg3m_away: 12
+            fg3a_away: 35
+            fg3_pct_away: 0.343
+            ftm_away: 12
+            fta_away: 15
+            ft_pct_away: 0.800
+            oreb_away: 6
+            dreb_away: 36
+            reb_away: 42
+            ast_away: 26
+            stl_away: 7
+            blk_away: 5
+            tov_away: 10
+            pf_away: 15
+            pts_away: 108
+            plus_minus_away: 8
+            video_available_away: 1
+            season_type: Regular Season
+      - input: this
+        rows:
+          - season_id: 22022
+            game_id: "0022200499"
+            game_date: "2023-01-14"
+            season: 2022-23
+            game_location: away
+            win_loss: W
+            team: BOS
+            team_name: Boston Celtics
+            opponent: GSW
+            opponent_name: Golden State Warriors
+            team_pts: 110.0
+            team_fgm: 40.0
+            team_fga: 85.0
+            team_fg_pct: 0.471
+            team_fg3m: 14.0
+            team_fg3a: 36.0
+            team_fg3_pct: 0.389
+            team_ftm: 16.0
+            team_fta: 20.0
+            team_ft_pct: 0.800
+            team_oreb: 7.0
+            team_dreb: 34.0
+            team_reb: 41.0
+            team_ast: 28.0
+            opponent_pts: 105.0
+            opponent_fgm: 38.0
+            opponent_fga: 87.0
+            opponent_fg_pct: 0.437
+            opponent_fg3m: 11.0
+            opponent_fg3a: 30.0
+            opponent_fg3_pct: 0.367
+            opponent_ftm: 18.0
+            opponent_fta: 22.0
+            opponent_ft_pct: 0.818
+            opponent_oreb: 9.0
+            opponent_dreb: 30.0
+            opponent_reb: 39.0
+            opponent_ast: 24.0
+
+    expect:
+      rows:
+        - season_id: 22022
+          game_id: "0022200500"
+          game_date: "2023-01-15"
+          season: 2023-23
+          game_location: away
+          win_loss: W
+          team: BOS
+          team_name: Boston Celtics
+          opponent: LAL
+          opponent_name: Los Angeles Lakers
+          team_pts: 108.0
+          team_fgm: 42.0
+          team_fga: 90.0
+          team_fg_pct: 0.47
+          team_fg3m: 12.0
+          team_fg3a: 35.0
+          team_fg3_pct: 0.34
+          team_ftm: 12.0
+          team_fta: 15.0
+          team_ft_pct: 0.80
+          team_oreb: 6.0
+          team_dreb: 36.0
+          team_reb: 42.0
+          team_ast: 26.0
+          opponent_pts: 100.0
+          opponent_fgm: 38.0
+          opponent_fga: 88.0
+          opponent_fg_pct: 0.43
+          opponent_fg3m: 10.0
+          opponent_fg3a: 32.0
+          opponent_fg3_pct: 0.31
+          opponent_ftm: 14.0
+          opponent_fta: 18.0
+          opponent_ft_pct: 0.78
+          opponent_oreb: 8.0
+          opponent_dreb: 32.0
+          opponent_reb: 40.0
+          opponent_ast: 22.0
+
+  - name: unit_test_full_stg_games__team_stats_home
+    model: stg_games__team_stats_home
+
+    overrides:
+      macros:
+        is_incremental: false
+
+    given:
+      - input: source("raw", "games")
+        rows:
+          - season_id: 22022
+            team_id_home: 1610612747
+            team_abbreviation_home: LAL
+            team_name_home: Los Angeles Lakers
+            game_id: "0022200500"
+            game_date: "2023-01-15"
+            matchup_home: LAL vs. BOS
+            wl_home: L
+            min: 240
+            fgm_home: 38
+            fga_home: 88
+            fg_pct_home: 0.432
+            fg3m_home: 10
+            fg3a_home: 32
+            fg3_pct_home: 0.313
+            ftm_home: 14
+            fta_home: 18
+            ft_pct_home: 0.778
+            oreb_home: 8
+            dreb_home: 32
+            reb_home: 40
+            ast_home: 22
+            stl_home: 5
+            blk_home: 4
+            tov_home: 12
+            pf_home: 18
+            pts_home: 100
+            plus_minus_home: -8
+            video_available_home: 1
+            team_id_away: 1610612738
+            team_abbreviation_away: BOS
+            team_name_away: Boston Celtics
+            matchup_away: BOS @ LAL
+            wl_away: W
+            fgm_away: 42
+            fga_away: 90
+            fg_pct_away: 0.467
+            fg3m_away: 12
+            fg3a_away: 35
+            fg3_pct_away: 0.343
+            ftm_away: 12
+            fta_away: 15
+            ft_pct_away: 0.800
+            oreb_away: 6
+            dreb_away: 36
+            reb_away: 42
+            ast_away: 26
+            stl_away: 7
+            blk_away: 5
+            tov_away: 10
+            pf_away: 15
+            pts_away: 108
+            plus_minus_away: 8
+            video_available_away: 1
+            season_type: Regular Season
+
+    expect:
+      rows:
+        - season_id: 22022
+          game_id: "0022200500"
+          game_date: "2023-01-15"
+          season: 2023-23
+          game_location: home
+          win_loss: L
+          team: LAL
+          team_name: Los Angeles Lakers
+          opponent: BOS
+          opponent_name: Boston Celtics
+          team_pts: 100.0
+          team_fgm: 38.0
+          team_fga: 88.0
+          team_fg_pct: 0.43
+          team_fg3m: 10.0
+          team_fg3a: 32.0
+          team_fg3_pct: 0.31
+          team_ftm: 14.0
+          team_fta: 18.0
+          team_ft_pct: 0.78
+          team_oreb: 8.0
+          team_dreb: 32.0
+          team_reb: 40.0
+          team_ast: 22.0
+          opponent_pts: 108.0
+          opponent_fgm: 42.0
+          opponent_fga: 90.0
+          opponent_fg_pct: 0.47
+          opponent_fg3m: 12.0
+          opponent_fg3a: 35.0
+          opponent_fg3_pct: 0.34
+          opponent_ftm: 12.0
+          opponent_fta: 15.0
+          opponent_ft_pct: 0.80
+          opponent_oreb: 6.0
+          opponent_dreb: 36.0
+          opponent_reb: 42.0
+          opponent_ast: 26.0

@@ -10,7 +10,7 @@
 {% set min_year_for_stats = 2012 %}
 
 WITH team_stats_home AS (
-    SELECT * FROM {{ ref("base_team_stats__home") }}
+    SELECT * FROM {{ ref("stg_games__team_stats_home") }}
     WHERE year(cast(game_date AS date)) >= {{ min_year_for_stats }}
     {% if is_incremental() %}
       and game_date >= (select max(game_date) from {{ this }})
@@ -18,7 +18,7 @@ WITH team_stats_home AS (
 )
 
 , team_stats_away AS (
-    SELECT * FROM {{ ref("base_team_stats__away") }}
+    SELECT * FROM {{ ref("stg_games__team_stats_away") }}
     WHERE year(cast(game_date AS date)) >= {{ min_year_for_stats }}
     {% if is_incremental() %}
       and game_date >= (select max(game_date) from {{ this }})

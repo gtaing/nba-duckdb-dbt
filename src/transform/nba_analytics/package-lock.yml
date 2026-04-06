@@ -1,8 +1,11 @@
 packages:
   - git: https://github.com/EqualExperts/dbt-unit-testing
+    name: dbt_unit_testing
     revision: e54329c3971c8c397f284a36de6a627832a24263
-  - package: dbt-labs/dbt_utils
-    version: 0.9.0
-  - package: dbt-labs/codegen
-    version: 0.13.1
-sha1_hash: 28a96ecc0ebad89cdef873da6b86ebf99425a214
+  - name: dbt_utils
+    package: dbt-labs/dbt_utils
+    version: 1.3.3
+  - name: codegen
+    package: dbt-labs/codegen
+    version: 0.14.0
+sha1_hash: cdd6ef8d17760c0eb939060354e81ecc65be8aad

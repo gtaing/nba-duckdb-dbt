@@ -1,7 +1,7 @@
-WITH stg_team_stats__opponents AS (
+WITH int_team_game_stats AS (
     SELECT *
     FROM
-        {{ ref('stg_team_stats__opponents') }}
+        {{ ref('int_team_game_stats') }}
 )
 
 , mean_stats AS (
@@ -16,7 +16,7 @@ WITH stg_team_stats__opponents AS (
         , {{ game_get_metric_mean('team_') }}
         , {{ game_get_metric_mean('opponent_') }}
     FROM
-        stg_team_stats__opponents
+        int_team_game_stats
     GROUP BY
         season_id, team, team_name, season
     HAVING
