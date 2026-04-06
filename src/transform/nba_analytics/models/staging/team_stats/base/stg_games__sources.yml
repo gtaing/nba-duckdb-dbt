@@ -5,6 +5,15 @@ sources:
     tables:
       - name: games
         description: "Raw data of NBA games including team statistics for both home and away teams"
+        config:
+          tags:
+            - teams
+            - raw
+          meta:
+            owner: "DATA_PRODUCT_TEAM"
+          contract:
+            enforced:
+              true
         columns:
           - name: season_id
             data_type: bigint

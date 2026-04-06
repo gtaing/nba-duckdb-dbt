@@ -3,6 +3,11 @@ version: 2
 models:
   - name: int_team_game_stats
     description: "Staging model for NBA team game stats with opponent statistics"
+    config:
+      tags:
+        - teams
+      meta:
+        owner: "DATA_ANALYTICS_TEAM"
     columns:
       - name: season
         data_type: varchar

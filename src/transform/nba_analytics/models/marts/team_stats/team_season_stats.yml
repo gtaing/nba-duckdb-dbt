@@ -3,6 +3,12 @@ version: 2
 models:
   - name: team_season_stats
     description: "Aggregated team statistics for each season, including performance metrics and rankings."
+    config:
+      tags:
+        - teams
+        - seasons
+      meta:
+        owner: "DATA_ANALYTICS_TEAM"
     columns:
       - name: season_id
         data_type: bigint

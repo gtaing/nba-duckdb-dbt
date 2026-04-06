@@ -3,6 +3,11 @@ version: 2
 models:
   - name: stg_games__team_stats_home
     description: "Base stats for NBA teams playing at home, including opponent statistics."
+    config:
+      tags:
+        - teams
+      meta:
+        owner: "DATA_ANALYTICS_TEAM"
     columns:
       - name: season_id
         data_type: bigint
@@ -121,6 +126,11 @@ models:
 
   - name: stg_games__team_stats_away
     description: "Base stats for NBA teams playing away, including opponent statistics."
+    config:
+      tags:
+        - teams
+      meta:
+        owner: "DATA_ANALYTICS_TEAM"
     columns:
       - name: season_id
         data_type: bigint
