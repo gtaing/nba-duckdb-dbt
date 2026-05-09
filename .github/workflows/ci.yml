@@ -71,14 +71,14 @@ jobs:
         run: |
           uv run docglow generate \
             --project-dir ${{ env.DBT_PROJECT_DIR }}  \
-            --output-dir ./site
+            --output-dir ${{ env.DBT_PROJECT_DIR }}/site
 
       - name: Upload dbt docs artifact
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
         with:
           # dbt docs generate outputs to target/ inside the project dir
-          path: ${{ env.DBT_PROJECT_DIR }}/target
+          path: ${{ env.DBT_PROJECT_DIR }}/site
 
   build-and-push:
     name: Build and push Docker image
@@ -137,6 +137,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          path: ./site
+        uses: actions/deploy-pages@v5
