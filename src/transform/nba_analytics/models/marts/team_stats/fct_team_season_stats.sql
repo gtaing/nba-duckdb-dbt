@@ -1,9 +1,9 @@
 {% set metrics = game_get_metrics() %}
 
-WITH int_team_game_stats AS (
+WITH stg_team_game_stats AS (
     SELECT *
     FROM
-        {{ ref('int_team_game_stats') }}
+        {{ ref('stg_team_game_stats') }}
 )
 
 , mean_stats AS (
@@ -24,7 +24,7 @@ WITH int_team_game_stats AS (
         , round(avg(opponent_{{ m }}), 1) AS opponent_{{ m }}
         {% endfor %}
     FROM
-        int_team_game_stats
+        stg_team_game_stats
     GROUP BY
         season_id, team, team_name, season
     HAVING
@@ -99,6 +99,5 @@ SELECT
     {% for m in metrics %}
     net_{{ m }}_rank{{ "," if not loop.last }}
     {% endfor %}
-FROM 
+FROM
     mean_and_rank_stats m
-

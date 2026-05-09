@@ -1,0 +1,15 @@
+# Column Lineage — Failure Report
+# 2 models with issues
+#
+# Common causes:
+#   - Snowflake variant access syntax (obj:key::type)
+#   - Complex macros that couldn't be expanded to SQL
+#   - Columns missing from catalog (run `dbt docs generate`)
+
+stg_games__team_stats_away  (model.nba_analytics.stg_games__team_stats_away)
+  Partial: 1/38 columns not traced
+  Columns: game_location
+
+stg_games__team_stats_home  (model.nba_analytics.stg_games__team_stats_home)
+  Partial: 1/38 columns not traced
+  Columns: game_location

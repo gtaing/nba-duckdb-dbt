@@ -36,7 +36,7 @@ debug-dbt-config:
 
 transform: ingest dbt-seed
 	@echo "🚀 Transforming with dbt"
-	@$(DBT_CMD) build -f $(DBT_OPTIONS)
+	@$(DBT_CMD) run -f $(DBT_OPTIONS)
 
 test-ingest:
 	@echo "🚀 Testing code: Running pytest"
@@ -50,10 +50,14 @@ dbt-sqlfluff-fix:
 	@echo "🚀 Applying sqlfluff fixing on dbt models in: $(PROJECT_DIR)"
 	@uv run -m sqlfluff fix $(PROJECT_DIR)
 
+dbt-cmd:
+	@echo "🚀 Executing dbt cmd in: $(ADHOC_CMD)"
+	@$(DBT_CMD) $(ADHOC_CMD) $(DBT_OPTIONS)
+
 dbt-docs-serve:
 	@echo "🚀 Generating dbt docs"
-	@$(DBT_CMD) docs generate $(DBT_OPTIONS)
-	@$(DBT_CMD) docs serve $(DBT_OPTIONS)
+	@docglow generate --project-dir $(PROJECT_DIR) --output-dir ./demo-site
+	@docglow serve --dir ./demo-site
 
 dbt-compile:
 	@echo "🚀 Compiling dbt models"

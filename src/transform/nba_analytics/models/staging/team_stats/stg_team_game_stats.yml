@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_team_game_stats
+  - name: stg_team_game_stats
     description: "Staging model for NBA team game stats with opponent statistics"
     config:
       tags:
@@ -125,8 +125,8 @@ models:
         description: "Free throws made by the opponent"
 
 unit_tests:
-  - name: unit_test_int_team_game_stats
-    model: int_team_game_stats
+  - name: unit_test_stg_team_game_stats
+    model: stg_team_game_stats
 
     overrides:
       macros:
