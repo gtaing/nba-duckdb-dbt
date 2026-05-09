@@ -69,7 +69,7 @@ jobs:
       - name: Generate dbt documentation
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          uv docglow generate \
+          uv run docglow generate \
             --project-dir ${{ env.DBT_PROJECT_DIR }}  \
             --output-dir ./site
 
